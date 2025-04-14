@@ -1,13 +1,8 @@
 const removeFromArray = function(arr, ...values) {
-    return arr.filter(item => {
-        let toRemove = false;
-        for (const value of values) {
-            if (item === value) {
-                toRemove = true;
-            }
-        }
-        return toRemove ? false : true;
-    });
+    for (const value of values) {
+        arr = arr.filter(item => item !== value);
+    }
+    return arr;
 };
 
 // Do not edit below this line
