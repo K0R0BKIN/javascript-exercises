@@ -1,3 +1,6 @@
 .vscode
 node_modules/
 .DS_Store
+.github/prompts/analyze-solution.prompt.md
+.cursor/rules/rate-solution.mdc
+.gitignore
