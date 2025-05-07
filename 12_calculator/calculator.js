@@ -19,12 +19,13 @@ const power = function(a, b) {
 };
 
 const factorial = function(num) {
-	let total = 1;
-  for (let i = 1; i <= num; i++) {
-    total *= i;
-  }
+  const factors = Array.from(Array(num), (_, i) => i+1);
+  const total = factors.reduce((total, curr) => total*curr, 1);
+
   return total;
 };
+
+console.info(factorial(0))
 
 // Do not edit below this line
 module.exports = {
