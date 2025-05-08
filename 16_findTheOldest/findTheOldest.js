@@ -1,22 +1,11 @@
 const findTheOldest = function(people) {
     const currYear = new Date().getFullYear();
-    const ages = people.map(person => {
-        if ('yearOfDeath' in person) {
-            return {
-                name: person.name,
-                age: person.yearOfDeath - person.yearOfBirth,
-            }
-        } else {
-            return {
-                name: person.name,
-                age: currYear - person.yearOfBirth,
-            }
-        }
-    });
-    const oldestPerson = ages.reduce((prev, curr) => {
-        return (curr.age > prev.age) ? curr : prev;
-    });
-    return oldestPerson;
+    const ages = people.map(({ name, yearOfBirth, yearOfDeath }) => ({
+        name,
+        age: yearOfDeath ? yearOfDeath - yearOfBirth : currYear - yearOfBirth
+    }));
+    
+    return ages.reduce((prev, curr) => curr.age > prev.age ? curr : prev);
 };
 
 const people = [
